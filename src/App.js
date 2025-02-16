@@ -8,7 +8,7 @@ function App() {
       <Weather />
       <p>
         <a href="https://github.com/kasianiemiec/react-app-yes">
-          Open-course code
+          Open-source code
         </a>{" "}
         by Kasia Niemiec.
       </p>
