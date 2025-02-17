@@ -1,64 +1,38 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+
+import "./Weather.css";
 
 export default function Weather() {
-  let [city, setCity] = useState("");
-  let [loaded, setLoaded] = useState(false);
-  let [temperature, setTemperature] = useState(null);
-  let [humidity, setHumidity] = useState(null);
-  let [wind, setWind] = useState(null);
-  let [description, setDescription] = useState(null);
-  let [icon, setIcon] = useState(null);
-
-  function showTemperature(response) {
-    setLoaded(true);
-    setTemperature(response.data.main.temp);
-    setHumidity(response.data.main.humidity);
-    setWind(response.data.wind.speed);
-    setDescription(response.data.weather[0].description);
-    setIcon(
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    let apiKey = "fe1483f743b581b5520a1b725af03a49";
-    let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(showTemperature);
-  }
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
-
-  let form = (
-    <form onSubmit={handleSubmit}>
-      <input type="search" placeholder="Type city..." onChange={updateCity} />
-      <input type="submit" value="Search" />
-    </form>
-  );
-
-  if (loaded) {
-    return (
-      <div className="Weather">
-        {" "}
-        {form}
-        <br />
-        <div>
-          <div>Temperature: {Math.round(temperature)}°C</div>
-          <div>Description: {description}</div>
-          <div>Humidity: {humidity}%</div>
-          <div>Wind: {wind}km/h</div>
-          <div>
-            <img src={icon} alt={description} />
-          </div>
+  return (
+    <div className="Weather">
+      {" "}
+      <form>
+        <input type="search" placeholder="Type city..." />
+        <input type="submit" value="Search" className="btn btn-warning" />
+      </form>
+      <br />
+      <h1>New York</h1>
+      <ul>
+        <li>Wednesday 7:00</li>
+        <li>Party cloudy</li>
+      </ul>
+      <div className="row">
+        <div className="col-6">
+          <img
+            src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
+            alt="partly cloudy"
+          />
+          15°C
         </div>
-        <br />
+        <div className="col-6">
+          <ul>
+            <li>Humidity: 60%</li>
+            <li>Wind: 5km/h</li>
+            <li>Precipitation: 15%</li>
+          </ul>
+        </div>
       </div>
-    );
-  } else {
-    return form;
-  }
+      <br />
+    </div>
+  );
 }
