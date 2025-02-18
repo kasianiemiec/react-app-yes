@@ -6,12 +6,14 @@ function App() {
     <div className="App">
       <div className="container">
         <Weather />
-        <p>
-          <a href="https://github.com/kasianiemiec/react-app-yes">
-            Open-source code
-          </a>{" "}
-          by Kasia Niemiec.
-        </p>
+        <footer>
+          <p>
+            <a href="https://github.com/kasianiemiec/react-app-yes">
+              Open-source code
+            </a>{" "}
+            by Kasia Niemiec.
+          </p>
+        </footer>
       </div>
     </div>
   );
