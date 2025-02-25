@@ -18,7 +18,7 @@ export default function WeatherInfo(props) {
         <div className="col-6">
           <div className="clearfix">
             <div className="d-flex align-items-center">
-              <div className="float-left">
+              <div className="float-left pb-2">
                 <img src={props.data.icon} alt={props.data.description} />
               </div>
               <div>
@@ -28,7 +28,7 @@ export default function WeatherInfo(props) {
           </div>
         </div>
         <div className="col-6">
-          <ul className="pt-3">
+          <ul className="pt-4 ps-3">
             <li>Humidity: {props.data.humidity}%</li>
             <li>Wind: {props.data.wind}km/h</li>
           </ul>
